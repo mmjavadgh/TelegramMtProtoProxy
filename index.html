@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Free MTProto Proxies</title>
+    <title>Freedom 4 ALL - Telegram MTProto Proxies</title>
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=512&id=oWiuH0jFiU0R&format=png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       :root {
-        --primary-color: #2196F3;
-        --secondary-color: #E3F2FD;
+        --primary-color: #707070;
+        --secondary-color: #d3d3d3;
         --text-color: #333333;
         --background-color: #FFFFFF;
         --dark-mode-background-color: #333333;
@@ -67,7 +68,7 @@
       th,
       td {
         text-align: left;
-        padding: 8px;
+        padding: 15px;
         border-bottom: 1px solid var(--primary-color);
       }
 
@@ -89,7 +90,7 @@
         box-shadow: var(--box-shadow);
         border-radius: 10px;
         padding: 5px;
-        background-color: var(--secondary-color);
+        /* background-color: #00d5ff; */
         color: var(--text-color);
         transform: translateZ(0);
         transition: transform 0.25s ease-out;
@@ -98,6 +99,37 @@
       .link-preview:hover {
         transform: translate(5px, 5px);
       }
+      /* Define a class for the button */
+.button {
+  /* Set the background color to blue */
+  background-color: #00bfe6;
+  /* Set the text color to white */
+  color: white;
+  /* Set the font weight to bold */
+  font-weight: bold;
+  /* Add some padding and border */
+  padding: 10px 20px;
+  border: none;
+  /* Add some cursor style */
+  cursor: pointer;
+   /* Add a border radius to reduce the corner */
+  border-radius: 15px;
+  /* Remove the text underline */
+  text-decoration: none;
+}
+
+/* Define the content of the button
+.button::after {
+  /* Set the content to "Connect" */
+  /* content: "Connect";
+} */ 
+
+/* Define a hover effect for the button */
+.button:hover {
+  /* Change the background color to green */
+  background-color: #0fe800;
+}
+
 
       @media (max-width: 768px) {
         table {
@@ -120,25 +152,25 @@
   <body>
     <div class="top-toolbar">
       <div>
-        <a href="#">Home</a>
-        <a href="https://twitter.com/yebekhe">Twitter</a>
+        <a href="./index.html">Back to home</a>
       </div>
       <div>
-        <a href="https://github.com/yebekhe/MTProtoCollector">GitHub</a>
+        <!-- <a href="https://github.com/yebekhe/MTProtoCollector"><i class="fa fa-github"></i> GitHub</a>  -->
+        <a href="https://github.com/yebekhe/MTProtoCollector" target="_blank" ><img title="Project on GitHub" src="https://img.icons8.com/?size=512&id=12598&format=png" width="24" height="24"> </a>
       </div>
     </div>
-    <h1>Free MTProto Proxies</h1>
+    <h1>Telegram MTProto Proxies</h1>
     <table id="proxy-table">
       <tr>
-        <th>#</th>
-        <th>Channel</th>
+        <th>List</th>
+        <th>Tap to connect</th>
         <th>Country</th>
-        <th>Link</th>
+        <th>Proxy link</th>
       </tr>
     </table>
     <div class="footer-bar">
       <div>
-        <a href="https://twitter.com/yebekhe">YeBeKhe © 2023</a>
+        <p style="color: white; font-weight: bold; text-align: center;">Based on "YeBeKhe MTProtoCollector" project on <a href="https://github.com/yebekhe/MTProtoCollector" style="color: rgb(214, 214, 214);">GitHub</a></p>
       </div>
     </div>
     <script>
@@ -151,12 +183,14 @@
           const countryCell = row.insertCell();
           const linkCell = row.insertCell();
           countCell.innerText = index + 1;
+          // const nameParts = proxy.query.name.split('|');
           const nameParts = proxy.query.name.split('|');
-          const channelUrl = nameParts[0].replace('@', '');
+          // const channelUrl = nameParts[0].replace('@', '');
+          const channelUrl = proxy.link.replace('https://t.me/', 'tg://');
           nameCell.innerHTML = `
 				
 				
-				<a href="https://t.me/${channelUrl}" class="link-preview">${nameParts[0]}</a>`
+				<a title="Connect to Proxy server" href="${channelUrl}" class="button">Connect</a>`
           countryCell.innerText = nameParts[1];
           linkCell.innerHTML = `
 				
